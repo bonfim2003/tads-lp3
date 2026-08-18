@@ -1,4 +1,7 @@
 package br.edu.ifsp.orderflow.domain;
 
-public class EStatusPedido {
+public enum EStatusPedido {
+    CRIADO,
+    PAGO,
+    CANCELADO
 }

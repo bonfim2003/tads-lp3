@@ -1,5 +1,10 @@
 package br.edu.ifsp.orderflow;
+import br.edu.ifsp.orderflow.domain.Cliente;
+import br.edu.ifsp.orderflow.domain.ItemPedido;
+import br.edu.ifsp.orderflow.domain.Pedido;
 import br.edu.ifsp.orderflow.domain.Produto;
+import br.edu.ifsp.orderflow.infra.InMemoryEstoqueService;
+
 import java.math.BigDecimal;
 
 public class Main {
@@ -24,8 +29,19 @@ public class Main {
                 new BigDecimal("1800.00")
         );
 
-        System.out.println(mouse);
-        System.out.println(teclado);
-        System.out.println(monitor);
+        Cliente ana = new Cliente("Ana","ana@email.com");
+        Cliente bruno = new Cliente("Bruno","bruno@gmail.com");
+
+        Pedido pedido1 = new Pedido(ana);
+        pedido1.adiconarItens(new ItemPedido(mouse,2));
+        pedido1.adiconarItens(new ItemPedido(teclado,1));
+
+        Pedido pedido2 = new Pedido(bruno);
+        pedido2.adiconarItens(new ItemPedido(monitor,2));
+        pedido2.adiconarItens(new ItemPedido(teclado,5));
+
+        InMemoryEstoqueService estoque = new InMemoryEstoqueService();
+        estoque.adicionarEsqoque(mouse,1);
+        System.out.println(pedido2);
     }
 }
