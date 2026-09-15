@@ -33,11 +33,11 @@ public class Pedido {
         return total;
     }
 
-    public void marcarComoPago(){
+    public void marcarComoPago() {
         this.status = EStatusPedido.PAGO;
     }
 
-    public void cancelar(){
+    public void cancelar() {
         this.status = EStatusPedido.CANCELADO;
     }
 
@@ -57,8 +57,12 @@ public class Pedido {
         return cliente;
     }
 
+    public String getIdCurto() {
+        return this.id.substring(0, 8);
+    }
+
     @Override
     public String toString() {
-        return "Pedido{" + this.id + "," + this.status + "," + this.calcularTotal() + "]";
+        return "Pedido[ ID: " + this.getIdCurto() + ", Status: " + this.status + ", Total R$: " + this.calcularTotal() + "]";
     }
 }

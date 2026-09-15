@@ -1,15 +1,15 @@
 package br.edu.ifsp.orderflow.service;
+
 import br.edu.ifsp.orderflow.domain.Pedido;
-import br.edu.ifsp.orderflow.domain.Produto;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.List;
 import java.util.Optional;
 
-public interface InMemoryPedidoRepository {
+public interface IPedidoRepository {
 
-    void (Pedido pedido);
+    void save(Pedido pedido);
 
-    Optional<Pedido> (String id);
+    Optional<Pedido> findById(String id);
 
-    List<Pedido> ();
+    List<Pedido> findAll();
 }
