@@ -7,7 +7,7 @@ package br.edu.ifsp.orderflow.events;
  de pagamento aprovado nunca receba um PagamentoRecusado**/
 public interface IEventHandler <E extends IDomainEvent>{
 
-    void handler (E event);
+    void handle(E event);
 
     /**
      Qual tipo de evento este handler trata?

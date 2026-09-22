@@ -25,8 +25,20 @@ public class PagamentoAprovadoNotificacaoHandlers implements IEventHandler <Paga
     }
 
     @Override
-    public void handler(PagamentoAprovado event) {
+    public void handle(PagamentoAprovado event) {
+        /*
+        O Optional verifica se está vazio
+         */
         Optional<Pedido> pedidoEncontrado = this.pedidoRepository.findById(event.pedidoId());
+
+        if (pedidoEncontrado.isPresent()){
+            Pedido pedido = pedidoEncontrado.get();
+            this.notificacaoService.notificar(
+                    pedido.getCliente(),
+                    "Pagamento aprovado! Pedido " + pedido.getIdCurto()
+                    + " confirmado (transação "+ event.transacaoId()+ ")"
+            );
+        }
 
     }
 
