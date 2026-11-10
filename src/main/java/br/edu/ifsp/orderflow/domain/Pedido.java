@@ -65,4 +65,8 @@ public class Pedido {
     public String toString() {
         return "Pedido[ ID: " + this.getIdCurto() + ", Status: " + this.status + ", Total R$: " + this.calcularTotal() + "]";
     }
+
+    public void adicionarItem(ItemPedido item) {
+        this.itens.add(item);
+    }
 }

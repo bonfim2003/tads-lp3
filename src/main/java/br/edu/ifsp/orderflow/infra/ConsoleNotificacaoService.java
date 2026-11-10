@@ -11,7 +11,7 @@ public class ConsoleNotificacaoService implements INotificacaoService {
         this.sleep(800);
 
         System.out.println(
-                "[NOTIFICACAO] para " + cliente.getEmail() + ": " + mensagem
+                "[NOTIFICACAO]["+Thread.currentThread().getName()+"] para" + cliente.getEmail() + ": " + mensagem
         );
     }
 
